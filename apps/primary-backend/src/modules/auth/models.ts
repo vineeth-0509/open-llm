@@ -1,0 +1,42 @@
+import { t } from "elysia";
+
+export namespace AuthModel {
+  export const signinSchema = t.Object({
+    email: t.String(),
+    password: t.String(),
+  });
+
+  export type signInSchema = typeof signinSchema.static;
+
+  export const signinResponseSchema = t.Object({
+    message: t.Literal("Signed in successfully"),
+  });
+
+  export type signinResponseSchema = typeof signinResponseSchema.static;
+
+  export const signinFailedResponseSchema = t.Object({
+    message: t.Literal("Incorrect credentials"),
+  });
+
+  export type signinFailedResponseSchema =
+    typeof signinFailedResponseSchema.static;
+  export const signupSchema = t.Object({
+    email: t.String(),
+    password: t.String(),
+  });
+
+  export type signupSchema = typeof signupSchema.static;
+
+  export const signupResponseSchema = t.Object({
+    id: t.String(),
+  });
+
+  export type signupResponseSchema = typeof signupResponseSchema.static;
+
+  export const signupFailedResponseSchema = t.Object({
+    message: t.Literal("Error while Signing up"),
+  });
+
+  export type signupFailedResponseSchema =
+    typeof signupFailedResponseSchema.static;
+}
