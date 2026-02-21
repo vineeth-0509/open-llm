@@ -3,7 +3,7 @@ import { prisma } from "db";
 const ONRAMP_AMOUNT = 1000;
 
 export abstract class PaymentsService{
-    static async onwrap(userId: number){
+    static async onramp(userId: number){
         const user = await prisma.$transaction([
             prisma.user.update({
                 where:{
