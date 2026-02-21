@@ -14,7 +14,7 @@ export abstract class ApiKeyService {
 
   static async createApiKey(
     name: string,
-    userId: number
+    userId: number,
   ): Promise<{
     id: string;
     apiKey: string;
@@ -37,7 +37,7 @@ export abstract class ApiKeyService {
     const apiKeys = await prisma.apiKey.findMany({
       where: {
         userId: userId,
-        deleted: false
+        deleted: false,
       },
     });
     return apiKeys.map((apiKey) => ({
@@ -46,10 +46,15 @@ export abstract class ApiKeyService {
       apiKeys: apiKey.apiKey,
       lastUsed: apiKey.lastUsed,
       creditsConsumed: apiKey.creditsConsumed,
+      disabled: apiKey.disabled,
     }));
   }
 
-  static async updateApiKeyDisabled(apiKeyId: number, userId: number, disabled: boolean) {
+  static async updateApiKeyDisabled(
+    apiKeyId: number,
+    userId: number,
+    disabled: boolean,
+  ) {
     await prisma.apiKey.update({
       where: {
         id: apiKeyId,
@@ -73,16 +78,15 @@ export abstract class ApiKeyService {
   //   });
   // }
 
-
-  static async delete(id: number,userId: number){
-      await prisma.apiKey.update({
-        where:{
-          id: id,
-          userId: userId
-        },
-        data:{
-          deleted: true
-        }
-      })
+  static async delete(id: number, userId: number) {
+    await prisma.apiKey.update({
+      where: {
+        id: id,
+        userId: userId,
+      },
+      data: {
+        deleted: true,
+      },
+    });
   }
 }

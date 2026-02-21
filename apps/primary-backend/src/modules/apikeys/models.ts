@@ -38,6 +38,7 @@ export namespace ApiKeyModel {
         apiKeys: t.String(),
         lastUsed: t.Nullable(t.Date()),
         creditsConsumed: t.Number(),
+        disabled: t.Boolean()
       }),
     ),
   });
