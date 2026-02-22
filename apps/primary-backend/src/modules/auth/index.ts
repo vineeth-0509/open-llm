@@ -92,3 +92,6 @@ export const app = new Elysia({ prefix: "auth" })
     400:AuthModel.profileResponseErrorSchema
   }
 })
+
+
+// userNotify : 15

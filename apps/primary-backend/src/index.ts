@@ -7,7 +7,6 @@ console.log(
 );
 
 /*
-
 auth => signup, signin
 api-key => create api key, get apikey, delete api key, disable api key.
 model => get all supported models, their pricing, providers etc.

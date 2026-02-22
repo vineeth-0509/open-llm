@@ -132,7 +132,7 @@ export function Dashboard() {
                                     </p>
                                 </div>
                                 <Button variant="outline" size="sm" asChild>
-                                    <Link to="/api-keys">
+                                    <Link to="/apikeys">
                                         Go
                                         <ArrowRight className="size-3.5" />
                                     </Link>
