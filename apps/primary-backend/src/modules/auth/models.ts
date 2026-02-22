@@ -36,7 +36,13 @@ export namespace AuthModel {
   export const signupFailedResponseSchema = t.Object({
     message: t.Literal("Error while Signing up"),
   });
-
   export type signupFailedResponseSchema =
     typeof signupFailedResponseSchema.static;
+
+  export const profileResponseSchema = t.Object({
+    credits: t.Number()
+  })
+  export const profileResponseErrorSchema = t.Object({
+    message: t.Literal("Error while fetching user details")
+  })  
 }
